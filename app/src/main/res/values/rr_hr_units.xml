@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="rr_hr_units">
+        <item>mm</item>
+        <item>sec</item>
+        <item>bits/sec  </item>
+    </string-array>
+</resources>

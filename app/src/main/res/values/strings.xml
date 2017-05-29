@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">QtCorrection</string>
+
+
+    <string name="disclaimer"><![CDATA[
+        <h1>Disclaimer</h1>
+        <p>No warranty is made that any of the calculations are accurate. The application does not attempt to substitute medical professionals or
+        proper/licensed methods to calculate and measure QT, and engage in the practice of medicine.</p>
+        <h1>Tips:</h1>
+        •	The longest value of QT should be used, measured in leads II,V5 or V6<br><br>
+        •	When the terminal point of T cannot be estimated, both QT and QTU should be measured<br><br>
+        •	QT estimation requires complex methods in arrhythmias<br><br>
+        •	Normal QTc are for males 350-450msec, females 360-460msec<br><br>
+        •	Risk factors for torsades de pointes (QTc >500msec, electrolytic disturbances, increase QTc by 60msec or more compared to pretreatment condition, female, elderly, cardiovascular disorders, drug interactions or overdose, genetic factors)<br><br>
+        •	Many drugs prolong QTc (e.g. antiarrhythmic, antidepressant, antipsychotics)<br><br>
+        •	Consult a clinical pharmacologist or a physician<br><br>]]>
+     </string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+    <string name="positive_button">Sure</string>
+    <string name="negtive_button">I understand</string>
+    <string name="hr_string">HR</string>
+    <string name="rr_string">RR</string>
+    <string name="ecg_error_string">Please fill in, usually 25 mm/sec is used</string>
+    <string name="input_error_string">Please fill in</string>
+    <string name="pref_general_string">General</string>
+    <string name="troll_pref_string">This app is Awesome</string>
+    <string name="troll_pref_summary">Check this box, just check it</string>
+</resources>

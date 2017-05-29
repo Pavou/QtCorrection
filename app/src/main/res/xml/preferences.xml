@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/pref_general_string"
+        android:key="pref_key_storage_settings">
+    <CheckBoxPreference
+        android:key="pref_sync"
+        android:title="@string/troll_pref_string"
+        android:summary="@string/troll_pref_summary"
+        android:defaultValue="true" />
+    </PreferenceCategory>
+</PreferenceScreen>
