@@ -1,8 +1,10 @@
 package com.avoupavou.qtcorrection;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,11 +13,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import org.apache.http.params.CoreConnectionPNames;
 
 import java.text.DecimalFormat;
 
@@ -76,11 +81,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            /*
             case R.id.action_settings:
                 Intent toSettings = new Intent(this,SettingsActivity.class);
                 startActivity(toSettings);
                 return true;
-
+            */
             case R.id.action_disclaimer:
                 showDisclaimer();
                 return true;
@@ -101,6 +107,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
     private void initSpinners(){
+
+        //init first spinner
         Spinner rr_spinner = (Spinner) findViewById(R.id.rr_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> rr_adapter = ArrayAdapter.createFromResource(this,
@@ -113,6 +121,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         firstSelection = rr_spinner.getSelectedItem().toString();
 
+        //init second spinner
         Spinner qr_spinner = (Spinner) findViewById(R.id.qr_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> qr_adapter = ArrayAdapter.createFromResource(this,
@@ -160,17 +169,21 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }else{
             changeECGVisibility(View.INVISIBLE);
         }
-
-
-
+        onGoClick(null);
     }
 
-    public void onGOClick(View view){
+    public void onGoClick(View view){
         calculateValues();
         drawValues();
+        View temp_view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(temp_view.getWindowToken(), 0);
+        }
     }
 
     void drawValues(){
+
         findViewById(R.id.bzt_textview).setVisibility(View.VISIBLE);
         findViewById(R.id.frd_textview).setVisibility(View.VISIBLE);
         findViewById(R.id.fmr_textview).setVisibility(View.VISIBLE);
@@ -212,7 +225,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         double firstValue;
         double secondValue;
-        double ecgSpeed;
+        double ecgSpeed =1;
 
         String firstText = ((EditText) findViewById(R.id.rr_edittext)).getText().toString();
         String secondText = ((EditText) findViewById(R.id.qr_edittext)).getText().toString();
@@ -233,9 +246,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         try {
             firstValue = Double.parseDouble(firstText);
             secondValue = Double.parseDouble(secondText);
-            ecgSpeed = Double.parseDouble(ecgText);
+            if(firstSelection.equals("mm") || secondSelection.equals("mm"))
+                 ecgSpeed = Double.parseDouble(ecgText);
         }catch (Exception e){
             e.printStackTrace();
+            hr=0;rr=0;qt=0;
+            bzt=0;frd=0;fmr=0;
             return;
         }
 
@@ -245,7 +261,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }else if(firstSelection.equals("mm")){
             rr = firstValue / ecgSpeed;
             hr = 60/rr;
-
         }else{
             rr = firstValue;
             hr = 60/rr;
