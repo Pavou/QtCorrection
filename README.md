@@ -1,7 +1,5 @@
 # QtCorrection
-Simple android app to calculate qtc
-
-The app is under construstion
+Simple Android App to calculate QtCorrection 
 
 # Disclaimer
 No warranty is made that any of the calculations are accurate. The application does not attempt to substitute medical professionals or
